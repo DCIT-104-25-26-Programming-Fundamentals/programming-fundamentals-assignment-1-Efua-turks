@@ -45,3 +45,32 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# =============================================================================
+# YOUR CODE BELOW
+# =============================================================================
+
+def get_grade(score):
+    """Return the letter grade for a given score, or None if invalid."""
+    if score < 0 or score > 100:
+        return None
+    elif score >= 80:
+        return "A"
+    elif score >= 70:
+        return "B"
+    elif score >= 60:
+        return "C"
+    elif score >= 50:
+        return "D"
+    else:
+        return "F"
+
+
+# Main block
+score = int(input("Enter student score (0-100): "))
+
+grade = get_grade(score)
+
+if grade is None:
+    print("Error: Score must be between 0 and 100.")
+else:
+    print(f"Grade: {grade}")

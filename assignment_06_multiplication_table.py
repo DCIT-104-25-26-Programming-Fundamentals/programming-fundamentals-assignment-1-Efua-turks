@@ -55,3 +55,50 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 6
+# Topic: Loops and Functions
+# =============================================================================
+
+
+def print_single_table(num):
+    """Prints the multiplication table for a given number from 1 to 12."""
+    print(f"Multiplication Table for {num}:")
+    for i in range(1, 13):
+        # f-string formatting ensures neat alignment
+        print(f"{num:2d}  x  {i:2d}  =  {num * i:3d}")
+
+
+def print_all_tables(n):
+    """Prints multiplication tables for numbers from 1 to N."""
+    for i in range(1, n + 1):
+        print_single_table(i)
+        if i < n:  # Add separator line between tables, except after the last one
+            print("-" * 27)
+
+
+# =============================================================================
+# MAIN PROGRAM
+# =============================================================================
+if __name__ == "__main__":
+    # --- PART A ---
+    try:
+        user_num = int(input("Enter a number for Part A: "))
+        if user_num <= 0:
+            print("Error: Please enter a positive integer greater than 0.")
+        else:
+            print_single_table(user_num)
+    except ValueError:
+        print("Error: Invalid input! Please enter a valid integer.")
+
+    print("\n" + "=" * 40 + "\n")  # Visual gap between Part A and Part B
+
+    # --- PART B ---
+    try:
+        max_num = int(input("Enter N for Part B (Tables 1 to N): "))
+        if max_num <= 0:
+            print("Error: Please enter a positive integer greater than 0.")
+        else:
+            print_all_tables(max_num)
+    except ValueError:
+        print("Error: Invalid input! Please enter a valid integer.")

@@ -49,3 +49,59 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# =============================================================================
+# PROGRAMMING FUNDAMENTALS — Assignment 5
+# Topic: Loops, Sequences, and Functions
+# =============================================================================
+
+
+def generate_fibonacci(n):
+    """Generates and prints the first n terms of the Fibonacci sequence."""
+    if n <= 0:
+        print("Please enter a positive integer greater than 0.")
+        return
+
+    sequence = []
+    a, b = 0, 1
+    for _ in range(n):
+        sequence.append(str(a))
+        a, b = b, a + b
+
+    print("Fibonacci sequence:", " ".join(sequence))
+
+
+def is_fibonacci(num):
+    """Checks whether a given non-negative integer is a Fibonacci number."""
+    if num < 0:
+        print(f"{num} is NOT a Fibonacci number.")
+        return
+
+    a, b = 0, 1
+    while a < num:
+        a, b = b, a + b
+
+    if a == num:
+        print(f"{num} is a Fibonacci number.")
+    else:
+        print(f"{num} is NOT a Fibonacci number.")
+
+
+# =============================================================================
+# MAIN PROGRAM
+# =============================================================================
+if __name__ == "__main__":
+    # --- PART A ---
+    try:
+        n_terms = int(input("How many terms? "))
+        generate_fibonacci(n_terms)
+    except ValueError:
+        print("Invalid input! Please enter a valid integer.")
+
+    print()  # Spacer line
+
+    # --- PART B ---
+    try:
+        check_num = int(input("Enter a number to check: "))
+        is_fibonacci(check_num)
+    except ValueError:
+        print("Invalid input! Please enter a valid integer.")
